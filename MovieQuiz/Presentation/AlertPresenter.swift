@@ -8,11 +8,20 @@
 import UIKit
 
 class AlertPresenter {
+    private var statisticService: StatisticService = StatisticServiceImplementation()
     weak var delegate: AlertPresenterDelegate?
     
     func createAlert(correctAnswers: Int, questionsAmount: Int) -> AlertModel {
-        let text = correctAnswers == questionsAmount ? "Поздравляем, вы ответили на 10 из 10!" :
-        "Вы ответили на \(correctAnswers) из 10, попробуйте ещё раз!"
+        statisticService.store(correct: correctAnswers, total: questionsAmount)
+        let quizCount = statisticService.gamesCount
+        let bestGame = statisticService.bestGame
+        let formattedAccuracy = String(format: "%.0f%%", statisticService.totalAccuracy * 100)
+        let text = """
+                        Ваш результат: \(correctAnswers)/\(questionsAmount)
+                        Количество сыгранных квизов: \(quizCount)
+                        Рекорд: \(bestGame.correct)/\(bestGame.total) (\(bestGame.date.dateTimeString))
+                        Средняя точность: \(formattedAccuracy)
+                        """
         
         let alertModel = AlertModel(
             title: "Этот раунд окончен!",
