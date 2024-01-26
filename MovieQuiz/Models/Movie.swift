@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Actor {
+struct Actor: Codable {
     let id: String
     let image: String
     let name: String
     let asCharacter: String
 }
-struct Movie {
+struct Movie: Codable {
     let id: String
     let title: String
     let year: Int
@@ -23,3 +23,4 @@ struct Movie {
     let directors: String
     let actorList: [Actor]
 }
+

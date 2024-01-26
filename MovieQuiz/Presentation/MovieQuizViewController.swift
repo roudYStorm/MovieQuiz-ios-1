@@ -39,9 +39,9 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
         
 
         documentsURL.appendPathComponent(fileName)
-        let jsonString = try? String(contentsOf: documentsURL)
+        let jsonString = (try? String(contentsOf: documentsURL))
         let movieBase = getMovie(from: jsonString!)
-         print(movieBase!)
+        print(movieBase!)
     }
     
     // MARK: - QuestionFactoryDelegate
