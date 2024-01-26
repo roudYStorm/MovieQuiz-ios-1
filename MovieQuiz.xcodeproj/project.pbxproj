@@ -29,7 +29,7 @@
 		EBF551A62B6124D100546DFD /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF551A52B6124D100546DFD /* AlertModel.swift */; };
 		EBF551AA2B61383400546DFD /* AlertProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF551A92B61383400546DFD /* AlertProtocol.swift */; };
 		EBF551AC2B62F2A000546DFD /* StatisticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF551AB2B62F2A000546DFD /* StatisticService.swift */; };
-		EBF551AE2B63A24000546DFD /* Gamerecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF551AD2B63A24000546DFD /* Gamerecord.swift */; };
+		EBF551AE2B63A24000546DFD /* GameRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF551AD2B63A24000546DFD /* GameRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +57,7 @@
 		EBF551A52B6124D100546DFD /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		EBF551A92B61383400546DFD /* AlertProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProtocol.swift; sourceTree = "<group>"; };
 		EBF551AB2B62F2A000546DFD /* StatisticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticService.swift; sourceTree = "<group>"; };
-		EBF551AD2B63A24000546DFD /* Gamerecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gamerecord.swift; sourceTree = "<group>"; };
+		EBF551AD2B63A24000546DFD /* GameRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +149,7 @@
 				EBA3D7DF2B610DDD00E95C36 /* QuestionFactoryDelegate.swift */,
 				EBF551A92B61383400546DFD /* AlertProtocol.swift */,
 				EBF551AB2B62F2A000546DFD /* StatisticService.swift */,
-				EBF551AD2B63A24000546DFD /* Gamerecord.swift */,
+				EBF551AD2B63A24000546DFD /* GameRecord.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -240,7 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF551AE2B63A24000546DFD /* Gamerecord.swift in Sources */,
+				EBF551AE2B63A24000546DFD /* GameRecord.swift in Sources */,
 				AD5EE5DE284D7887003966EF /* UIColor+Extensions.swift in Sources */,
 				AD7AFA552836189F00399704 /* Array+Extensions.swift in Sources */,
 				EBA3D7DE2B60FBF000E95C36 /* QuestionFactoryProtocol.swift in Sources */,

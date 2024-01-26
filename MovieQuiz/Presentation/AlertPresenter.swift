@@ -15,7 +15,7 @@ class AlertPresenter {
         statisticService.store(correct: correctAnswers, total: questionsAmount)
         let quizCount = statisticService.gamesCount
         let bestGame = statisticService.bestGame
-        let formattedAccuracy = String(format: "%.0f%%", statisticService.totalAccuracy * 100)
+        let formattedAccuracy = "\(String(format: "%.2f", statisticService.totalAccuracy))%" 
         let text = """
                         Ваш результат: \(correctAnswers)/\(questionsAmount)
                         Количество сыгранных квизов: \(quizCount)

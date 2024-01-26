@@ -16,11 +16,14 @@ protocol StatisticService {
     var totalAmount: Int { get set }
     func store(correct count: Int, total amount: Int)
 }
+
 class StatisticServiceImplementation: StatisticService {
     private enum Keys: String {
         case correct, total, bestGame, gamesCount, totalCorrectAnswers, totalAmount
     }
+    
     private let userDefaults = UserDefaults.standard
+    
     var totalAccuracy: Double {
         get {
             guard let data = userDefaults.data(forKey: Keys.total.rawValue),
@@ -121,10 +124,8 @@ class StatisticServiceImplementation: StatisticService {
         }
         
         gamesCount += 1
-        totalCorrectAnswers += count
-        totalAmount += amount
-        
-        
+        totalCorrectAnswers = bestGame.correct + count
+        totalAmount = bestGame.total + amount
         totalAccuracy = Double(totalCorrectAnswers) / Double(totalAmount) * 100
     }
 }
