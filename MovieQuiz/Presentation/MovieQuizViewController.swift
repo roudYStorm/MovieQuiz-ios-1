@@ -18,6 +18,8 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     private var questionFactory: QuestionFactoryProtocol = QuestionFactory()
     private var currentQuestion: QuizQuestion?
     
+    private var statisticService: StatisticService = StatisticServiceImplementation()
+    
     private var alertPresenter = AlertPresenter()
     private var alertModel: AlertModel?
     
@@ -135,10 +137,20 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     
     private func showNextQuestionOrResults() {
         if currentQuestionIndex == questionsAmount - 1 {
-            alertModel = alertPresenter.createAlert(correctAnswers: correctAnswers, questionsAmount: questionsAmount)
+            statisticService.store(correct: correctAnswers, total: questionsAmount)
+            let quizCount = statisticService.gamesCount
+            let bestGame = statisticService.bestGame
+            let formattedAccuracy = "\(String(format: "%.2f", statisticService.totalAccuracy))%"
+            let text = """
+                            Ваш результат: \(correctAnswers)/\(questionsAmount)
+                            Количество сыгранных квизов: \(quizCount)
+                            Рекорд: \(bestGame.correct)/\(bestGame.total) (\(bestGame.date.dateTimeString))
+                            Средняя точность: \(formattedAccuracy)
+                            """
+            alertModel = alertPresenter.createAlert(message: text)
             guard let alertModel = alertModel else { return }
             self.showAlert(quiz: alertModel)
-        } else { // 2
+        } else {
             currentQuestionIndex += 1
             self.questionFactory.requestNextQuestion()
         }
