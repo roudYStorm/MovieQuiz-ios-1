@@ -9,7 +9,7 @@ import UIKit
 
 class AlertPresenter {
     weak var delegate: AlertPresenterDelegate?
-    
+    // 8
     func createAlert(message: String) -> AlertModel {
         let alertModel = AlertModel(
             title: "Этот раунд окончен!",
