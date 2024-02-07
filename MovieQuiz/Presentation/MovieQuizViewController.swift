@@ -154,7 +154,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             currentQuestionIndex += 1
             self.questionFactory.requestNextQuestion()
         }
-//        w
+        
         /*
          Mock-данные
          
