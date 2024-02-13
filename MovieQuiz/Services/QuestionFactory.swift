@@ -7,6 +7,13 @@
 
 import Foundation
 class QuestionFactory: QuestionFactoryProtocol {
+    private let moviesLoader: MoviesLoading
+    private weak var delegate: QuestionFactoryDelegate?
+
+       init(moviesLoader: MoviesLoading, delegate: QuestionFactoryDelegate?) {
+           self.moviesLoader = moviesLoader
+           self.delegate = delegate
+       }
     
     func requestNextQuestion() {
         guard let index = (0..<questions.count).randomElement() else {

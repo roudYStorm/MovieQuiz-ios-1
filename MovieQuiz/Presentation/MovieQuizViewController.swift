@@ -11,6 +11,8 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     
     @IBOutlet var questionLabel: UILabel!
     
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     private var currentQuestionIndex = 0
     private var correctAnswers = 0
     private let questionsAmount: Int = 10
@@ -38,6 +40,14 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     }
     
     // MARK: - QuestionFactoryDelegate
+    func didLoadDataFromServer() {
+        activityIndicator.isHidden = true // скрываем индикатор загрузки
+        questionFactory?.requestNextQuestion()
+    }
+
+    func didFailToLoadData(with error: Error) {
+        showNetworkError(message: error.localizedDescription)
+    }
 
     func didReceiveNextQuestion(question: QuizQuestion?) {
         guard let question = question else {
@@ -121,7 +131,26 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             self.showNextQuestionOrResults()
         }
     }
-    
+    private func showLoadingIndicator() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    private func showNetworkError(message: String) {
+        hideLoadingIndicator() // скрываем индикатор загрузки
+        let model = AlertModel(title: "Ошибка",
+                                  message: message,
+                                  buttonText: "Попробовать еще раз") { [weak self] in
+               guard let self = self else { return }
+               
+               self.currentQuestionIndex = 0
+               self.correctAnswers = 0
+               
+               self.questionFactory?.requestNextQuestion()
+           }
+           
+           alertPresenter.show(in: self, model: model)
+       } 
+
     private func show(quiz result: QuizResultViewModel) {
         let alert = UIAlertController(title: result.title,
                                       message: result.text,
@@ -154,7 +183,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             currentQuestionIndex += 1
             self.questionFactory.requestNextQuestion()
         }
-        
+       
         /*
          Mock-данные
          
