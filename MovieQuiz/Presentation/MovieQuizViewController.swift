@@ -26,17 +26,14 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     private var alertModel: AlertModel?
     
     override func viewDidLoad() {
-        imageView.layer.masksToBounds = true
-        imageView.layer.borderWidth = 8
-        imageView.layer.borderColor = UIColor.ypBlack.cgColor
-        imageView.layer.cornerRadius = 20
-        
         super.viewDidLoad()
-        
-        UserDefaults.standard.set(true, forKey: "viewDidLoad")
-        questionFactory.delegate = self
-        questionFactory.requestNextQuestion()
-        alertPresenter.delegate = self
+       
+       imageView.layer.cornerRadius = 20
+        questionFactory = QuestionFactory(moviesLoader: MoviesLoader(), delegate: self)
+        statisticService = StatisticServiceImplementation()
+
+        showLoadingIndicator()
+        questionFactory?.loadData()
     }
     
     // MARK: - QuestionFactoryDelegate
@@ -102,7 +99,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
         let questionStep = QuizStepViewModel(
-            image: UIImage(named: model.image) ?? UIImage(),
+            image: UIImage(data: model.image) ?? UIImage(),
             question: model.text,
             questionNumber: "\(currentQuestionIndex + 1)/\(questionsAmount)")
         return questionStep

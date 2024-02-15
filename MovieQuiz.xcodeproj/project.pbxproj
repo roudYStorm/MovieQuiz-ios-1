@@ -155,7 +155,6 @@
 				EBA3D7DF2B610DDD00E95C36 /* QuestionFactoryDelegate.swift */,
 				EBF551A92B61383400546DFD /* AlertProtocol.swift */,
 				EBF551AB2B62F2A000546DFD /* StatisticService.swift */,
-				EBF551AD2B63A24000546DFD /* GameRecord.swift */,
 				EBF551ED2B7A4B7E00546DFD /* NetworkClient.swift */,
 				EBF551F12B7A729C00546DFD /* MoviesLoader.swift */,
 			);
@@ -169,6 +168,7 @@
 				EBA3D7D92B5EF27000E95C36 /* QuizResultsViewModel.swift */,
 				EBA3D7DB2B5EF28900E95C36 /* QuizQuestion.swift */,
 				EBF551A52B6124D100546DFD /* AlertModel.swift */,
+				EBF551AD2B63A24000546DFD /* GameRecord.swift */,
 				9489DE2B2B61936F00132FCC /* Movie.swift */,
 				EBF551EF2B7A70D200546DFD /* MostPopularMovies.swift */,
 			);
