@@ -5,7 +5,8 @@
 //  Created by Yulianna on 12.02.2024.
 //
 
-import Foundation
+import UIKit
+
 struct MostPopularMovies: Codable {
     
     private enum Keys: CodingKey {
@@ -13,6 +14,7 @@ struct MostPopularMovies: Codable {
     }
     let errorMessage: String
     let items: [MostPopularMovie]
+    
     init(from decoder: Decoder) throws {
            let container = try decoder.container(keyedBy: CodingKeys.self)
            self.errorMessage = try container.decode(String.self, forKey: .errorMessage)

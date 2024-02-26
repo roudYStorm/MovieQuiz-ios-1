@@ -7,15 +7,22 @@
 
 import UIKit
 
-class AlertPresenter {
+final class AlertPresenter  {
     weak var delegate: AlertPresenterDelegate?
-    // 8
-    func createAlert(message: String) -> AlertModel {
-        let alertModel = AlertModel(
-            title: "Этот раунд окончен!",
-            text: message,
-            buttonText: "Сыграть еще раз")
-
-        return alertModel
-    }
-}
+    init(delegate: AlertPresenterDelegate?) {
+            self.delegate = delegate
+        }
+    func showAlert(alertModel: AlertModel) {
+           let alert = UIAlertController(
+               title: alertModel.title,
+               message: alertModel.text,
+               preferredStyle: .alert)
+           let action = UIAlertAction(
+               title: alertModel.buttonText,
+               style: .default) { _ in
+               alertModel.buttonAction()
+           }
+           alert.addAction(action)
+           delegate?.showAlert(alert: alert)
+       }
+   }

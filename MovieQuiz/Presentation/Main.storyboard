@@ -83,7 +83,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="noButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1uK-49-w9c"/>
+                                                    <action selector="noButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fBj-Qm-YFb"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiJ-Is-Ngx" userLabel="Yes button">
@@ -100,7 +100,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="yesButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wgh-eq-OIK"/>
+                                                    <action selector="yesButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YYK-sD-vU4"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -108,7 +108,7 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="rbL-xN-uPJ">
-                                <rect key="frame" x="186" y="416" width="20" height="20"/>
+                                <rect key="frame" x="186" y="322" width="20" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
@@ -125,6 +125,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicato" destination="rbL-xN-uPJ" id="thA-WP-KCF"/>
+                        <outlet property="activityIndicator" destination="rbL-xN-uPJ" id="ibu-kD-Owu"/>
                         <outlet property="counterLabel" destination="N0c-Oo-f6a" id="Yew-NS-EHC"/>
                         <outlet property="imageView" destination="ntn-WC-IaV" id="kvD-D8-CVS"/>
                         <outlet property="noButton" destination="mZq-aO-btO" id="PiK-TZ-zKx"/>

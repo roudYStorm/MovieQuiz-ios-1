@@ -5,7 +5,7 @@
 //  Created by Yulianna on 12.02.2024.
 //
 
-import Foundation
+import UIKit
 protocol MoviesLoading {
     func loadMovies(handler: @escaping (Result<MostPopularMovies, Error>) -> Void)
 }
