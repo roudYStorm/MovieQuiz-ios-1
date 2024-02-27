@@ -124,7 +124,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicato" destination="rbL-xN-uPJ" id="thA-WP-KCF"/>
                         <outlet property="activityIndicator" destination="rbL-xN-uPJ" id="ibu-kD-Owu"/>
                         <outlet property="counterLabel" destination="N0c-Oo-f6a" id="Yew-NS-EHC"/>
                         <outlet property="imageView" destination="ntn-WC-IaV" id="kvD-D8-CVS"/>
