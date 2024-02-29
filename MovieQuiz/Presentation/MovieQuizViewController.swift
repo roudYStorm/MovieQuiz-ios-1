@@ -86,7 +86,7 @@ final class MovieQuizViewController: UIViewController, AlertPresenterDelegate, M
                                      text: result.text,
                                      buttonText: result.buttonText,
                                      buttonAction: {[ weak self ] in
-            guard let self = self else {
+            guard self != nil else {
                 return
             }
             
@@ -109,7 +109,7 @@ final class MovieQuizViewController: UIViewController, AlertPresenterDelegate, M
         let model = AlertModel(title: "Что-то пошло не так(",
                                text: message,
                                buttonText: "Попробовать ещё раз") { [ weak self ] in
-            guard let self = self else { return }
+            guard self != nil else { return }
         }
         alertPresenter?.showAlert(alertModel: model)
         self.presenter.restartGame()

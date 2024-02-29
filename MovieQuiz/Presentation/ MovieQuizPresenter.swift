@@ -34,7 +34,8 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
     var correctAnswers = 0
     var currentQuestion: QuizQuestion?
     var questionFactory: QuestionFactoryProtocol?
-    var statisticService: StatisticService! 
+    var statisticService: StatisticService = StaticticServiceImplementation() 
+    
     
     private weak var viewController: MovieQuizViewControllerProtocol?
     init(viewController: MovieQuizViewControllerProtocol?) {
