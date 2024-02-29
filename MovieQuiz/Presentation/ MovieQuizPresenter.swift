@@ -118,7 +118,7 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
                let averageAccuracyLine = "Средняя точность: \(String(format: "%.2f", statisticService.totalAccuracy))%"
                
                let resultMessage = [
-                   currentGameResultLine, totalPlaysCountLine, bestGameInfoLine, averageAccuracyLine
+                    totalPlaysCountLine, currentGameResultLine, bestGameInfoLine, averageAccuracyLine
                ].joined(separator: "\n")
                
                return resultMessage
