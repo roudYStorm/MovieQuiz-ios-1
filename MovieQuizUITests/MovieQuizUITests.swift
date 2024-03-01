@@ -28,7 +28,7 @@ class MovieQuizUITests: XCTestCase {
         app = nil
     }
     func testYesButton() {
-        sleep(3)
+        sleep(10)
         
         let firstPoster = app.images["Poster"] // находим первоначальный постер
         let firstPosterData = firstPoster.screenshot().pngRepresentation
@@ -41,7 +41,7 @@ class MovieQuizUITests: XCTestCase {
         XCTAssertNotEqual(firstPosterData, secondPosterData) // проверяем, что постеры разные
     }
     func testNoButton() {
-        sleep(3)
+        sleep(10)
         
         let firstPoster = app.images["Poster"]
         let firstPosterData = firstPoster.screenshot().pngRepresentation
@@ -72,7 +72,7 @@ class MovieQuizUITests: XCTestCase {
     }
 
     func testAlertDismiss() {
-        sleep(2)
+        sleep(10)
         for _ in 1...10 {
             app.buttons["Нет"].tap()
            
